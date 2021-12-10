@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
+from flask import Flask
 from flask import *
 from werkzeug.utils import secure_filename
 
 from flask_bootstrap import Bootstrap
 from urllib.parse import *
 import sqlite3, hashlib, os, time, random
+#import oss as oss
+import pypyodbc
+import config
 
 app = Flask(__name__)
 app.secret_key = 'dev'
@@ -12,6 +16,10 @@ UPLOAD_FOLDER = 'static/uploads'
 ALLOWED_EXTENSIONS = set(['jpeg', 'jpg', 'png', 'gif'])
 
 Bootstrap(app)
+
+def getConnection():
+     connection = pypyodbc.connect("Driver= {"+config.DATABASE_CONFIG["Driver"]+"} ;Server=" + config.DATABASE_CONFIG["Server"] + ";Database=" + config.DATABASE_CONFIG["Database"] + ";uid=" + config.DATABASE_CONFIG["UID"] + ";pwd=" + config.DATABASE_CONFIG["Password"])
+     return connection
 
 def getLoginDetails():
     with sqlite3.connect('database.db') as conn:
@@ -79,15 +87,27 @@ def random_color():
 @app.route('/')
 def root():
     loggedIn, firstName, noOfItems = getLoginDetails()
-    with sqlite3.connect('database.db') as conn:
+    with getConnection() as conn:
         cur = conn.cursor()
-        cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        cur.execute('SELECT goods.goods_id, goods_name, price, goods_describe, image_addr, inventory FROM goods, goods_image, goods_attribute WHERE goods.goods_id=goods_image.goods_id AND goods.goods_id=goods_attribute.goods_id')
         itemData = cur.fetchall()
-        cur.execute('SELECT categoryId, name FROM categories')
+        cur.execute('SELECT category_id, category_name FROM category')
         categoryData = cur.fetchall()
-    if len(itemData) > 9:
-        itemData = itemData[0:9]
+    # if len(itemData) > 9:
+    #     itemData = itemData[0:9]
     return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+
+@app.route("/goods/<int:goods_id>")
+def goods(goods_id):
+    goods_id = request.args.get('data[0]')
+    data = ['王睿之（ID：001）：很棒！','徐瑞泽（ID：002）：还不错！','陈一航（ID：003）：很好用！']
+    if len(data) > 3:
+        data = data[0:3]
+    return render_template("goods.html", data=data)
+
+@app.route("/cart1")
+def cart1():
+    return render_template("profile.html")
 
 @app.route("/add")
 def admin():
@@ -154,16 +174,14 @@ def removeItem():
 @app.route('/displayCategory/<int:categoryId>')
 def displayCategory(categoryId):
     loggedIn, firstName, noOfItems = getLoginDetails()
-    with sqlite3.connect('database.db') as conn:
+    with getConnection() as conn:
         cur = conn.cursor()
-        cur.execute(
-            "SELECT products.productId, products.name, products.price, products.description, products.image, products.stock, categories.name FROM products, categories WHERE products.categoryId = categories.categoryId AND categories.categoryId = ?",
-            (categoryId,))
+        cur.execute('SELECT goods.goods_id, goods_name, price, goods_describe, image_addr, inventory FROM goods, goods_image, goods_attribute WHERE goods.goods_id=goods_image.goods_id AND goods.goods_id=goods_attribute.goods_id AND goods.category_id=?',
+                    (categoryId,))
         itemData = cur.fetchall()
-        curr = conn.cursor()
-        curr.execute("SELECT categories.name from categories WHERE categories.categoryId = ?", (categoryId,))
-        categoryName = curr.fetchone()[0]
-    conn.close()
+        cur.execute("SELECT category_name from category WHERE category.category_id = ?", (categoryId,))
+        categoryName = cur.fetchone()[0]
+    #conn.close()
     existItem = True
     if len(itemData) == 0:
         existItem = False
