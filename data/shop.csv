@@ -1,22 +1,22 @@
-﻿shop_id,user_id,apply_status,shop_name,address,phone,shop_describe,announcement,evaluate_sum,evaluate_number,is_valid,images
-1,1,已通过,华为官方旗舰店,广东深圳,13322223333,必逛好店，本店已收录于连续六年双11不断档合集,这，就是HarmonyOS！,0,0,1,images/store_image/1.jpg
-2,2,已通过,小米官方旗舰店,北京,13322223334,必逛好店，本店已收录于儿童娱乐酷玩好物合集,生生不息，R U OK！,0,0,1,images/store_image/2.jpg
-3,3,已通过,联想官方旗舰店,上海,13322223335,必逛好店，本店已收录于儿童娱乐酷玩好物合集,世界失去联想，人类将会怎样！,0,0,1,images/store_image/3.jpg
-4,4,已通过,索尼官方旗舰店,上海,13322223336,必逛好店，本店已收录于心动私藏老店合集,SONY大法好,0,0,1,images/store_image/4.jpg
-5,5,已通过,Apple Store 官方旗舰店,上海,13322223337,必逛好店，本店已收录于儿童娱乐酷玩好物合集,环保！环保！环保！,0,0,1,images/store_image/5.jpg
-6,6,已通过,当当网官方旗舰店,北京,13322223338,必逛好店，本店已收录于书友店铺推荐合集,敢做干当当！,0,0,1,images/store_image/6.jpg
-7,7,已通过,中国人民大学出版社旗舰店,北京,13322223339,必逛好店，本店已收录于书友店铺推荐合集,人大附中附属大学,0,0,1,images/store_image/7.jpg
-8,8,已通过,清华大学出版社旗舰店,北京,13322223340,必逛好店，本店已收录于忠粉力荐的店铺合集,五道口男子技校,0,0,1,images/store_image/8.jpg
-9,9,已通过,味全旗舰店,北京,13322223346,必逛好店，本店已收录于忠粉力荐的店铺合集,,0,0,1,images/store_image/9.jpg
-10,10,已通过,博源美食饮品,北京,13322223348,必逛好店，本店已收录于忠粉力荐的店铺合集,味全就是好喝！,0,0,1,images/store_image/10.jpg
-11,11,已通过,娃哈哈钜和食品专营店,北京,13322223349,必逛好店，本店已收录于忠粉力荐的店铺合集,健康果汁每一天。,0,0,1,images/store_image/11.jpg
-12,12,已通过,卫龙食品旗舰店,北京,13322223350,必逛好店，本店已收录于忠粉力荐的店铺合集,辣条就是YYDS！,0,0,1,images/store_image/12.jpg
-13,13,已通过,良品铺子旗舰店,北京,13322223351,必逛好店，本店已收录于忠粉力荐的店铺合集,良品铺子，一个专属于你的零食铺。,0,0,1,images/store_image/13.jpg
-14,14,已通过,欧莱雅恒骊祥专卖店,北京,13322223352,必逛好店，本店已收录于忠粉力荐的店铺合集,巴黎欧莱雅,0,0,1,images/store_image/14.jpg
-15,15,已通过,perfectdiary旗舰店,北京,13322223353,必逛好店，本店已收录于忠粉力荐的店铺合集,完美日记，打造完美的你。,0,0,1,images/store_image/15.jpg
-16,16,已通过,SK-II官方旗舰店,北京,13322223354,必逛好店，本店已收录于忠粉力荐的店铺合集,专注高端保湿精华。,0,0,1,images/store_image/16.jpg
-17,17,已通过,京东北京自营店,北京,13322223349,必逛好店，本店已收录于忠粉力荐的店铺合集,京东，YYDS!,0,0,1,images/store_image/shop_default.jpg
-18,18,已通过,京东深圳自营店,深圳,13322223350,必逛好店，本店已收录于忠粉力荐的店铺合集,京东，YYDS!,0,0,1,images/store_image/shop_default.jpg
-19,19,已通过,京东上海自营店,上海,13322223351,必逛好店，本店已收录于忠粉力荐的店铺合集,京东，YYDS!,0,0,1,images/store_image/shop_default.jpg
-20,20,已通过,京东浙江自营店,浙江,13322223352,必逛好店，本店已收录于忠粉力荐的店铺合集,京东，YYDS!,0,0,1,images/store_image/shop_default.jpg
-21,21,已通过,京东天津自营店,天津,13322223353,必逛好店，本店已收录于忠粉力荐的店铺合集,京东，YYDS!,0,0,1,images/store_image/shop_default.jpg
+shop_id,user_id,apply_status,shop_name,address,phone,shop_describe,announcement,evaluate_sum,evaluate_number,is_valid,img
+1,1,��ͨ��,��Ϊ�ٷ��콢��,�㶫����,13322223333,�ع�õ꣬��������¼����������˫11���ϵ��ϼ�,�⣬����HarmonyOS��,0,0,1,images/shop_image/shop_1.jpg
+2,2,��ͨ��,С�׹ٷ��콢��,����,13322223334,�ع�õ꣬��������¼�ڶ�ͯ���ֿ������ϼ�,������Ϣ��R U OK��,0,0,1,images/shop_image/shop_2.jpg
+3,3,��ͨ��,����ٷ��콢��,�Ϻ�,13322223335,�ع�õ꣬��������¼�ڶ�ͯ���ֿ������ϼ�,����ʧȥ���룬���ཫ��������,0,0,1,images/shop_image/shop_3.jpg
+4,4,��ͨ��,����ٷ��콢��,�Ϻ�,13322223336,�ع�õ꣬��������¼���Ķ�˽���ϵ�ϼ�,SONY�󷨺�,0,0,1,images/shop_image/shop_4.jpg
+5,5,��ͨ��,Apple Store �ٷ��콢��,�Ϻ�,13322223337,�ع�õ꣬��������¼�ڶ�ͯ���ֿ������ϼ�,������������������,0,0,1,images/shop_image/shop_5.jpg
+6,6,��ͨ��,�������ٷ��콢��,����,13322223338,�ع�õ꣬��������¼�����ѵ����Ƽ��ϼ�,�����ɵ�����,0,0,1,images/shop_image/shop_6.jpg
+7,7,��ͨ��,�й������ѧ�������콢��,����,13322223339,�ع�õ꣬��������¼�����ѵ����Ƽ��ϼ�,�˴��и�����ѧ,0,0,1,images/shop_image/shop_7.jpg
+8,8,��ͨ��,�廪��ѧ�������콢��,����,13322223340,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,��������Ӽ�У,0,0,1,images/shop_image/shop_8.jpg
+9,9,��ͨ��,�ϲ��˶��콢��,����,13322223341,�ع�õ꣬��������¼���Ķ�˽���ϵ�ϼ�,�˶�������ֹ����,0,0,1,images/shop_image/shop_9.jpg
+10,10,��ͨ��,�����ٷ��콢��,����,13322223342,�ع�õ꣬��������¼�����ѵ����Ƽ��ϼ�,�˶�������ֹ����,0,0,1,images/shop_image/shop_10.jpg
+11,11,��ͨ��,��ֻ����ٷ��콢��,����,13322223343,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,��С��Ϊ������,0,0,1,images/shop_image/shop_11.jpg
+12,12,��ͨ��,��Ʒ���ӹٷ��콢��,����,13322223344,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,�����й�����ʳƷ��,0,0,1,images/shop_image/shop_12.jpg
+13,13,��ͨ��,ŷ���Źٷ��콢��,����,13322223345,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,��ֵ��ӵ�С�,0,0,1,images/shop_image/shop_13.jpg
+14,14,��ͨ��,��ʫ����ٷ��콢��,�Ϻ�,13322223346,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,����ȫ����İ��⡣,0,0,1,images/shop_image/shop_14.jpg
+15,15,��ͨ��,Ľ˼�Ҿ�,����,13322223347,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,����Ʒ�ʼҾӣ�,0,0,1,images/shop_image/shop_15.png
+16,16,��ͨ��,�˼ҼҾ�,�Ϻ�,13322223348,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,����Ʒ�ʼҾӣ�,0,0,1,images/shop_image/shop_16.jpg
+17,17,��ͨ��,����������Ӫ��,����,13322223349,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,������YYDS!,0,0,1,images/shop_image/shop_default.jpg
+18,18,��ͨ��,����������Ӫ��,����,13322223350,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,������YYDS!,0,0,1,images/shop_image/shop_default.jpg
+19,19,��ͨ��,�����Ϻ���Ӫ��,�Ϻ�,13322223351,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,������YYDS!,0,0,1,images/shop_image/shop_default.jpg
+20,20,��ͨ��,�����㽭��Ӫ��,�㽭,13322223352,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,������YYDS!,0,0,1,images/shop_image/shop_default.jpg
+21,21,��ͨ��,���������Ӫ��,���,13322223353,�ع�õ꣬��������¼���ҷ������ĵ��̺ϼ�,������YYDS!,0,0,1,images/shop_image/shop_default.jpg
