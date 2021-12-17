@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--suppress CssUnusedSymbol, JSUnresolvedLibraryURL -->
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>Comment</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/star.css" media="all" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    {#
+    <script src="../common/js/jquery-1.10.2.js"></script>#} {#{% extends 'base.html' %}#} {#{% block content %}#}
+
+    <body>
+        <div class="container">
+
+
+            <div class="page-header">
+                <h2>Evaluate for order_id:{{ order_id }}, goods_id:{{ goods_id }}, goods_name:{{ name }} </h2>
+            </div>
+            <form action="comment?order_id={{ order_id }}&goods_id={{ goods_id }}" method="post">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="font-size: 2rem;">Satisfaction&nbsp;<span style="color:red;">*</span>：</div>
+                    <div class="panel-body">
+                        <input name="starNum" id="starNum" type="hidden" required />
+                        <div class="starability-container">
+                            <fieldset class="starability-slot">
+                                <input type="radio" id="rate_1_0_1_5" name="starLevel" value="5" />
+                                <label for="rate_1_0_1_5" title="5星"></label>
+                                <input type="radio" id="rate_1_0_1_4" name="starLevel" value="4" />
+                                <label for="rate_1_0_1_4" title="4星"></label>
+                                <input type="radio" id="rate_1_0_1_3" name="starLevel" value="3" />
+                                <label for="rate_1_0_1_3" title="3星"></label>
+                                <input type="radio" id="rate_1_0_1_2" name="starLevel" value="2" />
+                                <label for="rate_1_0_1_2" title="2星"></label>
+                                <input type="radio" id="rate_1_0_1_1" name="starLevel" value="1" />
+                                <label for="rate_1_0_1_1" title="1星"></label>
+                            </fieldset>
+                        </div>
+                        <span style="font-size: 2rem;line-height: 2.9rem;padding: 1rem;font-style: oblique;" id="starStr"></span>
+                    </div>
+                </div>
+
+
+                <div class="page-header">
+                    <h3>Comment：</h3>
+                </div>
+                <textarea id="customerEvaluationComment" name="customerEvaluationComment" required class="form-control" rows="16" style="min-width: 90%;font-size: 3rem;height: 28rem !important;"></textarea>
+
+                <br/>
+
+                <p class="submit_btn">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+　　　　　　　Submit　　　　　　　　
+			</button>
+                    <button type="button" class="btn btn-default btn-lg btn-block" onclick="closed()">
+　　　　　　　Close　　　　　　　　
+			</button>
+                </p>
+            </form>
+        </div>
+    </body>
+
+
+    <script>
+        $('[name="starLevel"]').bind("click", function() {
+            console.log($(this)[0].value)
+            $("#starNum").val($(this)[0].value)
+            var starNum = $(this)[0].value;
+            if (starNum == 1) $("#starStr").text("Bad");
+            if (starNum == 2) $("#starStr").text("So So");
+            if (starNum == 3) $("#starStr").text("Good");
+            if (starNum == 4) $("#starStr").text("Very good");
+            if (starNum == 5) $("#starStr").text("Excellent");
+        })
+
+
+
+        // 提交评论
+        function evaluation() {
+            //评价等级
+
+            var customerEvaluationLevel = $('#starNum').val();
+            alert(customerEvaluationLevel);
+
+            if (customerEvaluationLevel == undefined || customerEvaluationLevel == null || customerEvaluationLevel == '') {
+                alert('请将满意度选好再提交哦！');
+                return false;
+            } else
+                window.history.go(-1);
+        }
+
+        //关闭
+        function closed() {
+            window.history.go(-1);
+        }
+    </script>
+
+
+
+    <style>
+        .page-header {
+            padding-bottom: 1px !important;
+            margin: 18px 0 20px !important;
+        }
+        
+        .submit_btn {
+            width: 100%;
+        }
+        
+        .textarea.form-control {
+            height: 28rem !important;
+        }
+        
+        h3 {
+            font-size: 22px;
+        }
+        
+        h2 {
+            font-size: 19px;
+        }
+    </style>
+    {#{% endblock %}#}
+
+</html>
