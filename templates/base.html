@@ -24,12 +24,11 @@
     </div>
     {% endfor %}
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-danger">
-        <a class="navbar-brand"><img src="https://d33wubrfki0l68.cloudfront.net/67a4995f0d6ce4e69f8ca496de0ee0d2832e9385/29a04/assets/img/logo_rocket.png" height="35" alt="Propulso"></a>
+        <a class="navbar-brand"><img src="https://d33wubrfki0l68.cloudfront.net/67a4995f0d6ce4e69f8ca496de0ee0d2832e9385/29a04/assets/img/logo_rocket.png" height="25" alt="Propulso"></a>
         <a class="navbar-brand" href="/">Shopping More</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -50,49 +49,17 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/displayCategory/5">Makeup</a>
                 </li>
-                <!-- <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Electronics</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="/displayCategory/3">HeadPhones</a>
-                        <a class="dropdown-item" href="/displayCategory/4">Computers</a>
-                        <a class="dropdown-item" href="/displayCategory/5">CellPhones</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Foods</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown02">
-                        <a class="dropdown-item" href="/displayCategory/6">Snacks</a>
-                        <a class="dropdown-item" href="/displayCategory/7">Drinks</a>
-                        <a class="dropdown-item" href="/displayCategory/8">CookedFoods</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sports & Outdoors</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown03">
-                        <a class="dropdown-item" href="/displayCategory/9">Basketball</a>
-                        <a class="dropdown-item" href="/displayCategory/10">Tennis</a>
-                        <a class="dropdown-item" href="/displayCategory/11">Golf</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/displayCategory/12">Clothing</a>
-                        <a class="dropdown-item" href="/displayCategory/13">Camping</a>
-                        <a class="dropdown-item" href="/displayCategory/14">Cycling</a>
-                    </div>
-                </li> -->
             </ul>
-            <!-- <form class="form-inline mr-4 my-3 my-lg-0"> -->
-            <form action="http://127.0.0.1:5000/search" method="POST" autocomplete="on">
-                <div class="form-inline mr-4 my-3 my-lg-0">
+            <form action="http://127.0.0.1:5000/search" method="POST" autocomplete="on" height="30">
+                <div class="form-inline mr-sm-3 my-3 my-sm-0" height="30">
                     <p>
+                        <p class="btn btn-outline-warning my-2 my-sm-0">商品搜索：</p>
+                        &nbsp;
                         <input class="form-control mr-sm-2 my-2 my-sm-0" type="text" name="search" id="search" placeholder="Put In Keyword" />
                         <input type="submit" class="btn btn-outline-warning my-2 my-sm-0" value="Search" />
                     </p>
                 </div>
             </form>
-            <!-- <input class="form-control mr-sm-2" id="Search" type="text" placeholder="Search" aria-label="Search"> -->
-            <!-- <button id="btn2" onclick="f()">点击检索</button>  -->
-            <!-- <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" href='/t?Searching=Search'>Search</button> -->
-
-            <!-- </form> -->
             {% if not loggedIn %}
             <a class="btn btn-outline-warning mr-sm-2 my-2 my-sm-0" href="/registerationForm">Sign up</a>
             <a class="btn btn-outline-warning mr-sm-2 my-2 my-sm-0" href="/loginForm">Sign in</a> {% else %}
