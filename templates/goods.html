@@ -1,0 +1,169 @@
+{% extends 'base.html' %} {% block head %}
+<style>
+    #images {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #image {
+        width: 380px;
+        height: 380px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    
+    #description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 80px;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<!--<link href="static/css/display.css" rel="stylesheet">-->
+{% endblock %} {% block content %}
+<br><br>
+<div class="container">
+    <div class="row clearfix">
+        <!-- <div class="col-md-1 column">
+        </div> -->
+        <div class="col-md-4 column">
+            <!-- <img alt="60x60" src={{url_for( 'static', filename='uploads/HUAWEI_MATE20.png' ) }} /> -->
+            <div class="card mb-4 shadow-sm">
+                <img src={{url_for( 'static', filename=itemData[4]) }} id="itemImage" class="cart-img-top" height="350" weight="200" />
+            </div>
+        </div>
+        <!-- <div class="col-md-1 column">
+        </div> -->
+        <div class="col-md-5 column">
+            <p class="text-left">
+                <strong>{{itemData[1]}}</strong>
+            </p>
+            <br>
+            <div class="btn-group">
+                <p class="text-left">
+                    分类：
+                    <a type="button" class="btn btn-sm btn-outline-danger" href="/displayCategory/{{categoryData[0]}}">
+                        <font color="#FF0000">{{categoryData[1]}}</font>
+                    </a>
+                </p>
+            </div>
+            <br>
+            <p class="text-left">
+                商铺编号：{{shopData[0]}}
+            </p>
+            <div class="btn-group">
+                <p class="text-left">
+                    商铺名称：
+                    <a type="button" class="btn btn-sm btn-outline-danger" href="/store/{{shopData[0]}}?shop_id={{shopData[0]}}">{{shopData[1]}}</a>
+                </p>
+            </div>
+            <br>
+            <p class="text-left">
+                {{itemData[3]}}
+            </p>
+            <p class="text-right">
+                <b>销量：{{itemData[5]}}</b>
+            </p>
+            <p class="text-right">
+                <b>库存量：{{itemData[6]}}</b>
+            </p>
+            <p>
+                当前折扣：
+                <a class="btn btn-sm btn-outline-danger">
+                    {{itemData[7]}}
+                </a>
+                <p class="text-right">
+                    折扣截止日期：<b>{{itemData[8]}}</b>
+                </p>
+            </p>
+            <!-- <input type="button" onclick="add()" value="+" style="width:30px; height:30px;">
+            <input type="text" value="1" class="xpf" name="wsxpf" id="txt" style="width:30px; height:30px;">
+            <input type="button" onclick="sub()" value="-" style="width:30px; height:30px;"> -->
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a type="button" class="btn btn-sm btn-outline-danger" href="/addToCart?goods_id={{itemData[0]}}">Add to Cart</a>
+                </div>
+                <p class="text-danger" style="font-size:150%">￥{{itemData[2]}}</p>
+            </div>
+        </div>
+        <div class="col-md-3 column">
+            <p class="text-left">
+                用户评价：
+            </p>
+            <ul>
+                {% for i in data %}
+                <li>
+                    <div id="description">
+                        <p class="card-text text-muted">{{i}}</p>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<br><br>
+<!-- <div class="container col-lg-12" style="background-image: url(static/img/background_3.jpg); top:0px; height: 250px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">Online Shopping System</span>
+            <br><span style="font-size:80%;font-weight:normal;font-family:sans-serif;">RUC DataBase</span><br>
+        </h1>
+    </div>
+</div> -->
+<div class="container col-lg-12" style="background-image: url(../static/img/background_3.jpg); top:0px; height: 250px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">RUC Shopping System</span>
+        </h1>
+    </div>
+</div>
+<script>
+    // 三种选中input框的方式，可以通过控制台查看输出结果
+    var a = document.getElementsByClassName("xpf")[0];
+    console.log('-----', a);
+    var b = document.getElementsByName("wsxpf")[0];
+    console.log('-----', b);
+    var c = document.getElementById("txt");
+    console.log('-----', c);
+
+    // 增加
+    function add() {
+        var txt = document.getElementsByClassName("xpf")[0];
+        var a = txt.value;
+        a++;
+        txt.value = a;
+    }
+
+    // 减少
+    function sub() {
+        var txt = document.getElementsByClassName("xpf")[0];
+        var a = txt.value;
+        if (a > 1) {
+            a--;
+            txt.value = a;
+        } else {
+            txt.value = 1;
+        }
+
+    }
+</script>
+{% endblock %}
+<!--<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>-->

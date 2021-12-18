@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% block head %}
+<style>
+    #images {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #image {
+        width: 380px;
+        height: 380px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    
+    #description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 80px;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<!--<link href="static/css/display.css" rel="stylesheet">-->
+{% endblock %} {% block content %}
+<div class="container col-lg-12" style="background-image: url(static/img/background_2.png); top:0px; height: 350px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">Excellent Store</span>
+            <br><span style="font-size:80%;font-weight:normal;font-family:sans-serif;">Select Quality Goods For You</span><br><br>
+        </h1>
+    </div>
+</div>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for data in itemData %}
+            <div class="col-md-4">
+                <div class="card mb-3 shadow-sm">
+                    <img src={{url_for( 'static', filename=data[4]) }} id="itemImage" class="cart-img-top" height="350" weight="200" />
+                    <div class="card-body">
+                        <a href='/store/{{data[0]}}?shop_id={{data[0]}}'>
+                            <h4 class="card-text text-danger">
+                                {{data[1]}}
+                            </h4>
+                        </a>
+                        <div id="description">
+                            <p class="card-text text-muted">店家简介：{{data[3]}}</p>
+                        </div>
+                        <h6 class="card-text text-muted">宣言： {{data[5]}}</h6>
+                        <div class="text-right">
+                            <!-- <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-danger" href="/store/{{data[0]}}?shop_id={{data[0]}}">进入商家</a>
+                            </div> -->
+                            <p>{{data[2]}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

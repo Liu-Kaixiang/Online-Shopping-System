@@ -1,0 +1,222 @@
+{% extends 'base.html' %} {% block head %}
+<style>
+    #images {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #image {
+        width: 380px;
+        height: 380px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    
+    #description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 80px;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<!--<link href="static/css/display.css" rel="stylesheet">-->
+{% endblock %} {% block content %}
+
+<div class="container col-lg-12" style="background-image: url(../static/img/background_2.png); top:0px; height: 200px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">Welcome to store {{itemData[1]}} !</span>
+        </h1>
+    </div>
+</div>
+
+<br><br>
+
+<div class="container">
+    <div class="row clearfix">
+        <!-- <div class="col-md-1 column">
+        </div> -->
+        <div class="col-md-2 column"></div>
+        <div class="col-md-4 column">
+            <!-- <img alt="60x60" src={{url_for( 'static', filename='uploads/HUAWEI_MATE20.png' ) }} /> -->
+            <div class="card mb-4 shadow-sm">
+                <!--<svg class="bd-placeholder-img card-img-top" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">-->
+                <!--<title>Placeholder</title>-->
+                <!--</svg>-->
+                <div id="images">
+                    <div id="image">
+                        <img src={{url_for( 'static', filename=itemData[6] ) }} id="itemImage" />
+                    </div>
+                </div>
+
+            </div>
+            <figure>
+                <embed type="image/svg+xml" src="/sales_line/?shop_id={{itemData[0]}}" width="800" height="700" />
+            </figure>
+        </div>
+        <!-- <div class="col-md-1 column">
+        </div> -->
+
+        <div class="col-md-1 column"></div>
+        <div class="col-md-4 column">
+            <p class="text-left">
+                <strong>商铺名称：{{itemData[1]}} </strong>
+            </p>
+            <p class="text_left">
+                店铺编号：{{itemData[0]}}
+            </p>
+            <p class="text_left">
+                地区：{{itemData[2]}}
+            </p>
+            <!-- <div class="btn-group">
+                <p class="text-left">
+                    标签：
+                    <a class="btn btn-sm btn-outline-danger">
+                        <font color="#FF0000">Headphones</font>
+                    </a>
+                    <a class="btn btn-sm btn-outline-danger">
+                        <font color="#FF0000">Computers</font>
+                    </a>
+                </p>
+            </div>
+            </p> -->
+
+            <p class="text-left">
+                联系电话：{{itemData[3]}}
+            </p>
+            <p class="text-left">
+                商铺简介：{{itemData[4]}}
+            </p>
+            <p class="text-left">
+                商铺宣言：{{itemData[5]}}
+            </p>
+            <br>
+            <p class="text-left">
+                <b>该店上个月共卖出</b>
+                <font color="#FF0000"><b>  {{itemData[7]}} 件  </b></font><b>商品</b>
+            </p>
+
+            <!-- <div class="btn-group">
+                <p class="text-left">
+                    查看：
+                    <a class="btn btn-sm btn-outline-danger">
+                        <font color="#FF0000">热销商品</font>
+                    </a>
+                    <a class="btn btn-sm btn-outline-danger">
+                        <font color="#FF0000">全部商品</font>
+                    </a>
+                </p>
+            </div> -->
+        </div>
+        <div class="col-md-2 column"></div>
+    </div>
+</div>
+<br><br>
+<div class="container col-lg-12" style="background-image: url(../static/img/background4.jpeg); top:0px; height: 230px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">The top 3 selling!</span>
+            <br><span style="font-size:80%;font-weight:normal;font-family:sans-serif;">Satisfy your desires.</span><br><br><br><br>
+        </h1>
+    </div>
+</div>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for data in maxData %}
+            <div class="col-md-4">
+                <div class="card mb-3 shadow-sm">
+                    <img src={{url_for( 'static', filename=data[4]) }} id="itemImage" class="cart-img-top" height="350" weight="200" />
+                    <div class="card-body">
+                        <a href='/goods/{{data[0]}}?goods_id={{data[0]}}'>
+                            <h4 class="card-text text-danger">
+                                {{data[1]}}
+                            </h4>
+                        </a>
+                        <div id="description">
+                            <p class="card-text text-muted">{{data[3]}}</p>
+                        </div>
+                        <h6 class="card-text text-muted">Stock: {{data[5]}}</h6>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-danger" href="/addToCart?goods_id={{data[0]}}">Add to Cart</a>
+                            </div>
+                            <p class="text-danger" style="font-size:150%">￥{{data[2]}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="container col-lg-12" style="background-image: url(../static/img/background4.jpeg); top:0px; height: 230px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">All Goods!</span>
+            <br><span style="font-size:80%;font-weight:normal;font-family:sans-serif;">Find what you like.</span><br><br><br><br>
+        </h1>
+    </div>
+</div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for data in categoryData %}
+            <div class="col-md-4">
+                <div class="card mb-3 shadow-sm">
+                    <img src={{url_for( 'static', filename=data[4]) }} id="itemImage" class="cart-img-top" height="350" weight="200" />
+                    <div class="card-body">
+                        <a href='/goods/{{data[0]}}?goods_id={{data[0]}}'>
+                            <h4 class="card-text text-danger">
+                                {{data[1]}}
+                            </h4>
+                        </a>
+                        <div id="description">
+                            <p class="card-text text-muted">{{data[3]}}</p>
+                        </div>
+                        <h6 class="card-text text-muted">Stock: {{data[5]}}</h6>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-danger" href="/addToCart?goods_id={{data[0]}}">Add to Cart</a>
+                            </div>
+                            <p class="text-danger" style="font-size:150%">￥{{data[2]}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div class="container col-lg-12" style="background-image: url(../static/img/background_3.jpg); top:0px; height: 250px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">Online Shopping System</span>
+            <br><span style="font-size:80%;font-weight:normal;font-family:sans-serif;">RUC DataBase</span><br>
+        </h1>
+    </div>
+</div>
+
+{% endblock %}
+<!--<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>-->
