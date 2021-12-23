@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}
+<main role="main" class="container">
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-danger rounded shadow-sm">
+        <img class="mr-3" src="static/img/rocket.png" alt="" width="48" height="48">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">管理员中心</h6>
+            <small>事务处理与账号管理</small>
+        </div>
+    </div>
+
+
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">事务列表</h6>
+        {% for data in transactionData %}
+        <div class="media text-muted pt-3">
+            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="{{data[6]}}"/><text x="50%" y="50%" fill="{{data[0]}}" dy=".3em">32x32</text></svg>
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">事务ID：{{data[0]}} 提交时间：{{data[6]}}</strong>
+                <br>用户ID：{{data[1]}} 事务类型：{{data[3]}} 备注：{{data[4]}}<br>
+                <br>事务状态：<span class="text-danger">{{data[3]}}</span>处理时间：<span class="text-danger">{{data[7]}}</span><br>
+                <div class="btn-group">
+                    <a type="button" class="btn btn-sm btn-outline-danger" href="/doevent?event_id={{data[0]}}">通过</a>
+                </div>
+
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">商店列表</h6>
+        {% for data in shopData %}
+        <div class="media text-muted pt-3">
+            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="{{data[6]}}"/><text x="50%" y="50%" fill="{{data[0]}}" dy=".3em">32x32</text></svg>
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">商店ID：{{data[0]}}</strong> 商店名：<span class="text-danger">{{data[1]}}</span>
+                <br>电话：{{data[2]}} 地址：{{data[3]}}<br>
+                <br>评价总数：<span class="text-danger">{{data[4]}}</span> 总评分：<span class="text-danger">{{data[4]}}</span><br>
+                <button type="button" class="btn btn-danger btn-sm" href="/store/{{data[0]}}">进入商店</button>
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">用户列表</h6>
+        {% for data in userData %}
+        <div class="media text-muted pt-3">
+            <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="{{data[6]}}"/><text x="50%" y="50%" fill="{{data[6]}}" dy=".3em">32x32</text></svg>
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">用户ID：{{data[0]}}</strong> 邮箱：<span class="text-danger">{{data[1]}}</span> 电话：{{data[2]}}
+
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
+</main>
+{% endblock %}
