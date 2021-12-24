@@ -1,0 +1,91 @@
+ {% extends 'base.html' %} {% block head %}
+<style>
+    #images {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    #image {
+        width: 380px;
+        height: 380px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+    
+    #description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height: 80px;
+    }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<!--<link href="static/css/display.css" rel="stylesheet">-->
+{% endblock %} {% block content %}
+
+
+<!--<img src="/number-of-sales.png"-->
+<!--     alt="random points as png"-->
+<!--     height="400"-->
+<!--&gt;-->
+
+<br><br>
+
+<body>
+    <figure>
+        <embed type="image/svg+xml" src="/profits_line/" width="800" height="700" />
+    </figure>
+    <figure>
+        <embed type="image/svg+xml" src="/profits_chart/" width="800" height="700" />
+    </figure>
+    <figure>
+        <embed type="image/svg+xml" src="/sales_chart/" width="800" height="700" />
+    </figure>
+    <figure>
+        <embed type="image/svg+xml" src="/sales_line/" width="800" height="700" />
+    </figure>
+    <figure>
+        <embed type="image/svg+xml" src="/sales_goods/" width="800" height="700" />
+    </figure>
+    <figure>
+        <embed type="image/svg+xml" src="/profits_goods/" width="800" height="700" />
+    </figure>
+</body>
+
+<!--<embed src="{{url_for('static',filename='images/goods_image/11.svg')}}"  width="700" height="700" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />-->
+<!--url_for('static',filename=-->
+<!--src="{{ url_for('static',filename='front/js/yxMobileSlider.js') }}"></script>-->
+<!--<embed src="D:\die_visual.svg" width="700" height="700" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />-->
+
+
+
+
+
+<br><br>
+<div class="container col-lg-12" style="background-image: url(static/img/background_3.jpg); top:0px; height: 250px">
+    <div class="logotxt">
+        <h1 class="text-light" style="text-align:center;vertical-align:middle">
+            <br><span style="font-size:180%;font-weight:bold;font-family:sans-serif;">Online Shopping System</span>
+            <br><span style="font-size:80%;font-weight:normal;font-family:sans-serif;">RUC DataBase</span><br>
+        </h1>
+    </div>
+</div>
+
+{% endblock %}
+<!--<rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>-->
