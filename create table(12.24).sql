@@ -221,7 +221,7 @@ create table receiver
 create index idx_receiver_userId ON dbo.receiver (user_id);
 
 /*==============================================================*/
-/* Table: favorite_shops                                          */
+/* Table: favorite_shops                                        */
 /*==============================================================*/
 create table favorite_shops
 (
@@ -237,7 +237,7 @@ create table favorite_shops
 create index idx_favorite_shops_userId ON dbo.favorite_shops (user_id);
 
 /*==============================================================*/
-/* Table: favorite_goods                                         */
+/* Table: favorite_goods                                        */
 /*==============================================================*/
 create table favorite_goods
 (
@@ -253,7 +253,7 @@ create table favorite_goods
 create index idx_favorite_goods_userId ON dbo.favorite_goods (user_id);
 
 /*==============================================================*/
-/* Table: shopping_cart                                           */
+/* Table: shopping_cart                                         */
 /*==============================================================*/
 create table shopping_cart
 (
@@ -272,10 +272,30 @@ create index idx_shopping_cart_userId ON dbo.shopping_cart (user_id);
 
 
 
+/*==============================================================*/
+/* View (创建视图)                                              */
+/*==============================================================*/
+
+use OSS
+go
+
+-- 查询商品各类属性等的视图
+create view goods_view 
+as
+select goods.goods_id, goods_name, price, goods_describe, image_addr, inventory
+from goods, goods_image, goods_attribute 
+where goods.goods_id=goods_image.goods_id AND goods.goods_id=goods_attribute.goods_id
+
+-- 查询商店各类属性等的视图
+create view store_view 
+as
+select shop_id, shop_name, address, shop_describe, img, announcement 
+from shop 
+order by shop_id
 
 
 /*==============================================================*/
-/* Trigger                                                      */
+/* Trigger (创建触发器)                                         */
 /*==============================================================*/
 
 use OSS
@@ -386,12 +406,4 @@ begin
 	deallocate cur2
 	delete from goods_in_order where order_id in (select inserted.order_id from inserted,deleted where inserted.order_id=deleted.order_id and deleted.order_status='待支付' and inserted.order_status='已取消')
 end
-go
-
-
-/*==============================================================*/
-/* View                                                         */
-/*==============================================================*/
-
-use OSS
 go
