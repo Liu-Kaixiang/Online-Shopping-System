@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#563d7c" />
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">-->
+    <title>{% block title %}More shopping, more happiness!{% endblock %}</title>
+    {% block head %} {% endblock %}
+</head>
+
+<body>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-danger">
+        <a class="navbar-brand"><img src="https://d33wubrfki0l68.cloudfront.net/67a4995f0d6ce4e69f8ca496de0ee0d2832e9385/29a04/assets/img/logo_rocket.png" height="35" alt="Propulso"></a>
+        <a class="navbar-brand" href="/">Shopping More</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/store">商家</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/displayCategory/1">Electronic</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/displayCategory/2">Books</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/displayCategory/3">Drinks</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/displayCategory/4">Snacks</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/displayCategory/5">Makeup</a>
+                </li>
+            </ul>
+            <!-- <form class="form-inline mr-4 my-3 my-lg-0"> -->
+            <form action="http://127.0.0.1:5000/search" method="POST" autocomplete="on" height="30">
+                <div class="form-inline mr-sm-3 my-3 my-sm-0" height="30">
+                    <p>
+                        <p class="btn btn-outline-warning my-2 my-sm-0">商品搜索：</p>
+                        &nbsp;
+                        <input class="form-control mr-sm-2 my-2 my-sm-0" type="text" name="search" id="search" placeholder="Put In Keyword" />
+                        <input type="submit" class="btn btn-outline-warning my-2 my-sm-0" value="Search" />
+                    </p>
+                </div>
+            </form>
+            <!-- <input class="form-control mr-sm-2" id="Search" type="text" placeholder="Search" aria-label="Search"> -->
+            <!-- <button id="btn2" onclick="f()">点击检索</button>  -->
+            <!-- <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" href='/t?Searching=Search'>Search</button> -->
+
+            <!-- </form> -->
+            {% if not loggedIn %}
+            <a class="btn btn-outline-warning mr-sm-2 my-2 my-sm-0" href="/registerationForm">Sign up</a>
+            <a class="btn btn-outline-warning mr-sm-2 my-2 my-sm-0" href="/loginForm">Sign in</a> {% else %}
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello, {{firstName}}</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="/orders">Your orders</a>
+                        <a class="dropdown-item" href="/profile">Check and edit profile</a>
+                        <a class="dropdown-item" href="/password">Change password</a>
+                        <a class="dropdown-item" href="/administrator">Admin's center</a>
+                        <a class="dropdown-item" href="/shop_admin">My shop</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Sign Out</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/cart"><img src={{url_for( 'static', filename='img/shoppingCart.png' )}} id="cartIcon" width="24px" height="24px" /> CART <u>{{noOfItems}}</u></a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %} {% endblock %}
+</body>
+<script language="javascript">
+    function f() {
+        var v = document.getElementById("Search");
+        alert(v.value);
+        window.location.href = "/Search?Searching=" + v.value;
+    }
+</script>
+
+</html>
