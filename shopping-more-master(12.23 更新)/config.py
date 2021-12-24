@@ -3,5 +3,5 @@ DATABASE_CONFIG = {
     'Server': 'localhost',
     'Database': 'OSS',
     'UID': 'sa',
-    'Password': 'Kuriyama520'
+    'Password': '123456'
     }
