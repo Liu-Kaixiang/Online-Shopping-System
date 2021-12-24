@@ -272,8 +272,13 @@ create index idx_shopping_cart_userId ON dbo.shopping_cart (user_id);
 
 
 
-use OSS
 
+
+/*==============================================================*/
+/* Trigger                                                      */
+/*==============================================================*/
+
+use OSS
 go
 
 create trigger delete_shop on shop after update
@@ -381,4 +386,12 @@ begin
 	deallocate cur2
 	delete from goods_in_order where order_id in (select inserted.order_id from inserted,deleted where inserted.order_id=deleted.order_id and deleted.order_status='待支付' and inserted.order_status='已取消')
 end
+go
+
+
+/*==============================================================*/
+/* View                                                         */
+/*==============================================================*/
+
+use OSS
 go
