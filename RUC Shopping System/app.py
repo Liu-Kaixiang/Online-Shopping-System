@@ -113,6 +113,7 @@ def goods(goods_id):
         shopData = cur.fetchall()[0]
         cur.execute('SELECT comment FROM goods_in_orders WHERE goods_id=?',(goods_id,))
         commentData = cur.fetchall()
+        print(itemData)
     # data = ['王睿之（ID：001）：很棒！','徐瑞泽（ID：002）：还不错！','陈一航（ID：003）：很好用！']
     # # print(itemData)
     # # print(shopData)
@@ -146,7 +147,7 @@ def store(shop_id):
     with getConnection() as conn:
         cur = conn.cursor()
         cur.execute('SELECT shop_id, shop_name, address, phone, shop_describe, announcement, img, sales FROM shop WHERE shop_id=? ORDER BY sales DESC', (shop_id,))
-        itemData = cur.fetchall()[0]    
+        itemData = cur.fetchall()[0]  
         print(itemData)
         cur.execute('SELECT goods.goods_id, goods_name, price, goods_describe, image_addr, inventory FROM goods, goods_image, goods_attribute WHERE goods.goods_id=goods_image.goods_id AND goods.goods_id=goods_attribute.goods_id AND goods.shop_id=? AND goods.is_valid=1', (shop_id,))
         categoryData = cur.fetchall()
@@ -252,7 +253,8 @@ def register():
             with getConnection() as con:
                 try:
                     cur = con.cursor()      
-                    cur.execute('INSERT INTO user_inf(username,nickname,password,email,phone,birthday,province,sex) VALUES (?, ?, ?, ?, ?,?,?,?)', (username,nickname,hashlib.md5(cpassword.encode()).hexdigest(), email, phone,birthday,province,sex))
+                    cur.execute('INSERT INTO user_inf(username,nickname,password,email,phone,birthday,province,sex) VALUES (?, ?, ?, ?, ?,?,?,?)', 
+                                            (username,nickname,hashlib.md5(cpassword.encode()).hexdigest(), email, phone,birthday,province,sex))
                     con.commit()
                     flash("Registered Successfully")
                 except:

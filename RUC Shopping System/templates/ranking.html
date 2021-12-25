@@ -48,11 +48,8 @@
                     <!--<svg class="bd-placeholder-img card-img-top" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">-->
                     <!--<title>Placeholder</title>-->
                     <!--</svg>-->
-                    <div id="images">
-                        <div id="image">
-                            <img src={{url_for( 'static', filename=data[4]) }} id="itemImage" />
-                        </div>
-                    </div>
+                    <img src={{url_for( 'static', filename=data[4]) }} id="itemImage" class="cart-img-top" height="350" weight="200" />
+
                     <div class="card-body">
                         <a href='/goods/{{data[0]}}?goods_id={{data[0]}}'>
                             <h4 class="card-text text-danger">
