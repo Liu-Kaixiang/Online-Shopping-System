@@ -1,7 +1,7 @@
 # 文档说明
 RUC Shopping System： 可以运行的原项目
 
-​	config.py：连接本地数据库
+​	config.py：连接本地数据库的相关配置
 
 ​	app.py：项目主文件
 
