@@ -1,5 +1,5 @@
 # 文档说明
-**RUC Shopping System**： 可以运行的原项目
+**RUC Shopping System**： 可以运行的源项目
 
 ​	config.py：连接本地数据库
 
