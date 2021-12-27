@@ -16,3 +16,5 @@
 项目：RUC数据库系统概论——网上购物B2C购物商城（2019级统计学院）
 
 作者：刘凯祥，王睿之，徐瑞泽，陈一航，王浩
+
+视频展示链接：https://www.bilibili.com/video/BV1qP4y1H7Ee?spm_id_from=333.999.0.0
